@@ -1,0 +1,104 @@
+{
+    "id": "staff",
+    "name": "Staff",
+    "authors": ["nivcoo", "KraftInk"],
+    "license": "MIT",
+    "description": "staff::messages.package_description",
+    "market": {
+        "name": "staff::market.name",
+        "author": {
+            "name": "nivcoo, KraftInk",
+            "url": "https://github.com/kraftink-cms"
+        },
+        "description": "staff::market.description"
+    },
+    "type": "plugin",
+    "games": {
+        "supported": ["*"]
+    },
+    "version": "1.0.0",
+    "namespace": "KraftInk\\Plugins\\Staff\\",
+    "provider": "KraftInk\\Plugins\\Staff\\Providers\\PluginServiceProvider",
+    "privacy": "KraftInk\\Plugins\\Staff\\Services\\Privacy",
+    "permissions": {
+        "staff.view": {
+            "label": "staff::messages.permission_view",
+            "default": {
+                "visitor": true,
+                "member": true
+            }
+        },
+        "staff.manage": {
+            "label": "staff::messages.admin_title",
+            "default": {
+                "admin": true
+            }
+        },
+        "staff.purge": {
+            "label": "staff::messages.permission_purge",
+            "default": {
+                "admin": true
+            }
+        }
+    },
+    "navigation": {
+        "public": [
+            {
+                "label": "staff::messages.common.staff",
+                "permission": "staff.view",
+                "route": "plugins.staff.public.documents.index"
+            }
+        ],
+        "admin": [
+            {
+                "parent": "extensions",
+                "position": 700,
+                "label": "staff::messages.common.staff",
+                "permission": "staff.manage",
+                "icon": "people",
+                "children": [
+                    {
+                        "label": "staff::messages.common.editorial",
+                        "route": "plugins.staff.admin.documents.index",
+                        "permission": "staff.manage",
+                        "icon": "file-earmark-text"
+                    },
+                    {
+                        "label": "staff::messages.common.directory",
+                        "route": "plugins.staff.admin.members.index",
+                        "permission": "staff.manage",
+                        "icon": "person"
+                    },
+                    {
+                        "label": "staff::display.title",
+                        "route": "plugins.staff.admin.display.edit",
+                        "permission": "staff.manage",
+                        "icon": "layout-text-window"
+                    }
+                ]
+            }
+        ],
+        "footer": []
+    },
+    "imports": {
+        "kraftink": ["staff__"],
+        "azuriom": ["staff_"],
+        "mineweb": ["staff_"]
+    },
+    "requires": {
+        "php": "^8.4.1",
+        "cms": ">=0.0.1"
+    },
+    "configuration": {
+        "route": "plugins.staff.admin.display.edit",
+        "permission": "staff.manage"
+    },
+    "uninstall": {
+        "settings": ["staff.", "secret.staff."],
+        "storage": []
+    },
+    "assets": {
+        "styles": ["display.css", "ordering.css"],
+        "scripts": ["editor.js", "profiles.js", "display.js", "ordering.js"]
+    }
+}

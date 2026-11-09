@@ -1,0 +1,21 @@
+.staff-order-handle {
+    cursor: grab;
+}
+
+.staff-order-handle:active {
+    cursor: grabbing;
+}
+
+.staff-order-before {
+    box-shadow: inset 0 2px var(--bs-primary);
+}
+
+.staff-order-after {
+    box-shadow: inset 0 -2px var(--bs-primary);
+}
+
+@media (pointer: coarse) {
+    .staff-order-handle {
+        display: none;
+    }
+}
