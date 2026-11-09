@@ -2,5 +2,5 @@
 
 return [
     'name' => 'Équipe',
-    'description' => 'Présentez votre équipe : portraits, biographies et rôles au sein de la communauté.',
+    'description' => 'Présentez votre équipe sur une page publique avec les rôles et les profils de ses membres.',
 ];

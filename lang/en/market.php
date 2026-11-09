@@ -2,5 +2,5 @@
 
 return [
     'name' => 'Staff',
-    'description' => 'Introduce your team through portraits, biographies and roles within the community.',
+    'description' => 'Publish a team page with staff profiles and roles.',
 ];
