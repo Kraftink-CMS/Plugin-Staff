@@ -33,22 +33,6 @@ class Member extends Model
 {
     public const MAX_SOCIAL_LINKS = 12;
 
-    public const SOCIAL_ICONS = [
-        'link-45deg',
-        'globe',
-        'discord',
-        'github',
-        'youtube',
-        'twitch',
-        'twitter-x',
-        'instagram',
-        'tiktok',
-        'facebook',
-        'linkedin',
-        'steam',
-        'reddit',
-    ];
-
     protected $table = 'staff__members';
 
     protected $guarded = ['id'];
