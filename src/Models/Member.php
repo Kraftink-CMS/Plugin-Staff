@@ -10,7 +10,6 @@ use App\Models\Accounts\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Validation\Rule;
 
 /**
  * @mixin Builder<static>
@@ -34,22 +33,6 @@ class Member extends Model
 {
     public const MAX_SOCIAL_LINKS = 12;
 
-    public const SOCIAL_ICONS = [
-        'link-45deg',
-        'globe',
-        'discord',
-        'github',
-        'youtube',
-        'twitch',
-        'twitter-x',
-        'instagram',
-        'tiktok',
-        'facebook',
-        'linkedin',
-        'steam',
-        'reddit',
-    ];
-
     protected $table = 'staff__members';
 
     protected $guarded = ['id'];
@@ -72,7 +55,7 @@ class Member extends Model
                     }
                 },
             ],
-            'social_links.*.icon' => ['required', Rule::in(self::SOCIAL_ICONS)],
+            'social_links.*.icon' => ['required', 'string', 'max:60', 'regex:/^[a-z0-9][a-z0-9-]*$/D'],
         ];
     }
 

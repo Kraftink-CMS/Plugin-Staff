@@ -43,7 +43,7 @@
             @endif
             @foreach ($member->social_links as $link)
                 <a class="small text-decoration-none" href="{{ $link['url'] }}" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-{{ $link['icon'] }} me-1" aria-hidden="true"></i>{{ $link['label'] }}</a>
+                    <x-content-icon :name="$link['icon']" class="me-1" />{{ $link['label'] }}</a>
             @endforeach
         </div>
     @endif
