@@ -43,13 +43,7 @@
             @endif
             @foreach ($member->social_links as $link)
                 <a class="small text-decoration-none" href="{{ $link['url'] }}" target="_blank" rel="noopener noreferrer">
-                    @if (class_exists(\App\Kraft\ContentIcons::class))
-                        <x-dynamic-component component="content-icon" :name="$link['icon']" class="me-1" />
-                    @else
-                        <i class="bi bi-{{ $link['icon'] }} me-1" aria-hidden="true"></i>
-                    @endif
-                    {{ $link['label'] }}
-                </a>
+                    <x-content-icon :name="$link['icon']" class="me-1" />{{ $link['label'] }}</a>
             @endforeach
         </div>
     @endif
